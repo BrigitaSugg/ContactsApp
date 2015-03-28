@@ -6,17 +6,31 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.RelativeLayout;
 
+import java.util.LinkedList;
+import java.util.List;
+
 public class createNewContact extends Activity {
+    final private DatabaseHandler db = new DatabaseHandler(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_create_new_contact);
-
-
+        List<String> contactsStrings = new LinkedList<String>();
+        for (Contact c : db.getAllContacts()) {
+            contactsStrings.add(c.getName());
+        }
+        ArrayAdapter<String> itemsAdapter =
+                new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, contactsStrings);
+        ListView listView = (ListView) findViewById(R.id.contactList);
+        listView.setAdapter(itemsAdapter);
+        
         Button Create = (Button) findViewById(R.id.Create);
         final RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.page1);
         View.OnClickListener listener = new View.OnClickListener() {

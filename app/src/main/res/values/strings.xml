@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Contacts App</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_create_new_contact">New Contact</string>
+    <string name="title_activity_new_contact">newContact</string>
+    <string name="Save">Save</string>
+    <string name="Delete">Delete</string>
+    <string name="Remove">Delete</string>
+    <string name="createnewcontact">Create New Contact</string>
+
+</resources>
